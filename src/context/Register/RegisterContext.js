@@ -13,11 +13,11 @@ export type RegisterRegistry = {
 }
 
 const initialState: RegisterRegistry = {
-    quantity: 1,
+    quantity: 0,
     setQuantity: () => {},
     sizes: [],
     setSizes: () => {},
-    flavorQuantity: 1,
+    flavorQuantity: 0,
     setFlavorQuantity: () => {}
 };
 

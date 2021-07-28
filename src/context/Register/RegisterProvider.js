@@ -9,9 +9,9 @@ import { shouldHaveSizesAccordingOfQuantities } from './BusinessRules';
 type RegisterProviderProps = { children: React$Element<any> }
 
 function RegisterProvider({ children }: RegisterProviderProps): React$Element<any> {
-    const [quantity, setQuantity] = useState<number>(1);
+    const [quantity, setQuantity] = useState<number>(0);
     const [sizes, setSizes] = useState<Array<Size>>([]);
-    const [flavorQuantity, setFlavorQuantity] = useState<number>(1);
+    const [flavorQuantity, setFlavorQuantity] = useState<number>(0);
 
     const state: RegisterRegistry = {
         quantity,
@@ -29,7 +29,7 @@ function RegisterProvider({ children }: RegisterProviderProps): React$Element<an
     }, [quantity, setQuantity, sizes, setSizes, flavorQuantity, setFlavorQuantity]);
 
     useLayoutEffect(() => {
-        console.log('Change');
+        console.log('#### Update Store ####');
     });
 
     return (

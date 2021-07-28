@@ -10,7 +10,7 @@ export function shouldHaveSizesAccordingOfQuantities(options: configsToShouldHav
     const { sizes, quantity } = options;
     const message = "A lista de tamanhos não esta de acordo com a quantidade selecionada";
 
-    if (sizes.length !== quantity) {
+    if (sizes.length < quantity) {
         if (callback) {
             callback(message);
         } else {
