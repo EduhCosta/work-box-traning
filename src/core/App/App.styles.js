@@ -21,6 +21,8 @@ const GlobalStyle = createGlobalStyle`
         font: inherit;
         vertical-align: baseline;
         box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size: 14px;
     }
     article, aside, details, figcaption, figure,
     footer, header, hgroup, menu, nav, section {

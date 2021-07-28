@@ -5,6 +5,9 @@ import { useHistory } from 'react-router-dom';
 import type { RegisterRegistry, Size } from './../../context/Register/RegisterContext';
 import useRegister from '../../context/Register/useRegister';
 
+import CounterToggle from '../../components/CounterToggle';
+import DetailsSelector from './components/DetailsSelector/DetailsSelector';
+
 // Default size of pizza
 const DEFAULT_SIZE: Size = 'broto';
 // Default quantity of flavors of pizza
@@ -53,29 +56,14 @@ function OrderType(): React$Element<"div">{
     const renderSizesAccordingQuantity = (): Array<React$Element<"div">> => {
         const sizesSelectors: Array<React$Element<any>> =
             new Array(quantity).fill().map((it: any, idx: number) => (
-                <div key={idx}>
-                    <div>
-                        <label htmlFor={'tasty' + idx}>Qual o tamanho da pizza [{idx}]?</label>
-                        <select
-                            id={'tasty' + idx}
-                            onChange={(ev) => onChangeSizeSelector(ev, idx)}
-                            value={sizes[idx]}
-                            name="tasty"
-                        >
-                            <option value="broto">Broto</option>
-                            <option value="media">Média</option>
-                            <option value="grande">Grande</option>
-                        </select>
-                    </div>
-                    {sizes[idx] === 'grande' && (
-                        <div>
-                            <label htmlFor="quantity">Quantos sabores?</label>
-                            <button type="button" onClick={() => onFlavorQuantityChange(idx, false)}>-</button>
-                            <p>{flavorQuantity[idx]}</p>
-                            <button type="button" onClick={() => onFlavorQuantityChange(idx, true)}>+</button>
-                        </div>
-                    )}
-                </div>
+                <DetailsSelector
+                    key={idx}
+                    id={idx}
+                    onSelectSize={(ev) => onChangeSizeSelector(ev, idx)}
+                    valueSize={sizes[idx]}
+                    flavorQuantity={flavorQuantity[idx]}
+                    onChangeFlavorCounter={onFlavorQuantityChange}
+                />
             ));
 
         return sizesSelectors;
@@ -91,9 +79,11 @@ function OrderType(): React$Element<"div">{
             <p>Sobre seu pedido:</p>
             <form onSubmit={onContinue}>
                 <label htmlFor="quantity">Quantas pizzas deseja?</label>
-                <button type="button" onClick={() => onQuantityChange(false)}>-</button>
-                <p>{quantity}</p>
-                <button type="button" onClick={() => onQuantityChange(true)}>+</button>
+                <CounterToggle
+                    onSub={() => onQuantityChange(false)}
+                    value={quantity}
+                    onAdd={() => onQuantityChange(true)}
+                />
 
                 {renderSizesAccordingQuantity()}
 
