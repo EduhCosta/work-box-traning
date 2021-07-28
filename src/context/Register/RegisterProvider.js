@@ -11,7 +11,7 @@ type RegisterProviderProps = { children: React$Element<any> }
 function RegisterProvider({ children }: RegisterProviderProps): React$Element<any> {
     const [quantity, setQuantity] = useState<number>(0);
     const [sizes, setSizes] = useState<Array<Size>>([]);
-    const [flavorQuantity, setFlavorQuantity] = useState<number>(0);
+    const [flavorQuantity, setFlavorQuantity] = useState<Array<number>>([1]);
 
     const state: RegisterRegistry = {
         quantity,
@@ -27,10 +27,6 @@ function RegisterProvider({ children }: RegisterProviderProps): React$Element<an
         shouldHaveSizesAccordingOfQuantities({ quantity, sizes });
         console.groupEnd();
     }, [quantity, setQuantity, sizes, setSizes, flavorQuantity, setFlavorQuantity]);
-
-    useLayoutEffect(() => {
-        console.log('#### Update Store ####');
-    });
 
     return (
         <RegisterContext.Provider value={state}>

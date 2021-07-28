@@ -8,8 +8,8 @@ export type RegisterRegistry = {
     setQuantity: ((number => number) | number) => void,
     sizes: Array<Size>,
     setSizes: (((Array<Size>) => Array<Size>) | Array<Size>) => void,
-    flavorQuantity: number,
-    setFlavorQuantity: ((number => number) | number) => void
+    flavorQuantity: Array<number>,
+    setFlavorQuantity: (((Array<number>) => Array<number>) | Array<number>) => void
 }
 
 const initialState: RegisterRegistry = {
@@ -17,7 +17,7 @@ const initialState: RegisterRegistry = {
     setQuantity: () => {},
     sizes: [],
     setSizes: () => {},
-    flavorQuantity: 0,
+    flavorQuantity: [1],
     setFlavorQuantity: () => {}
 };
 
