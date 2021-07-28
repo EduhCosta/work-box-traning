@@ -1,9 +1,15 @@
 // @flow
 import React from 'react';
+import { GlobalStyle } from './App.styles';
+
+import Routes from './../Routes';
 
 function App(): React$Element<"div"> {
     return (
-        <div>App</div>
+        <div>
+            <GlobalStyle />
+            <Routes />
+        </div>
     );
 };
 
