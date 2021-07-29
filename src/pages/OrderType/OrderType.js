@@ -8,6 +8,8 @@ import useRegister from '../../context/Register/useRegister';
 import CounterToggle from '../../components/CounterToggle';
 import DetailsSelector from './components/DetailsSelector/DetailsSelector';
 
+import { CountPizzaBox, SectionName } from './OrderType.styled';
+
 // Default size of pizza
 const DEFAULT_SIZE: Size = 'broto';
 // Default quantity of flavors of pizza
@@ -76,14 +78,16 @@ function OrderType(): React$Element<"div">{
 
     return (
         <div>
-            <p>Sobre seu pedido:</p>
+            <SectionName>Sobre seu pedido:</SectionName>
             <form onSubmit={onContinue}>
-                <label htmlFor="quantity">Quantas pizzas deseja?</label>
-                <CounterToggle
-                    onSub={() => onQuantityChange(false)}
-                    value={quantity}
-                    onAdd={() => onQuantityChange(true)}
-                />
+                <CountPizzaBox>
+                    <label htmlFor="quantity">Quantas pizzas deseja?</label>
+                    <CounterToggle
+                        onSub={() => onQuantityChange(false)}
+                        value={quantity}
+                        onAdd={() => onQuantityChange(true)}
+                    />
+                </CountPizzaBox>
 
                 {renderSizesAccordingQuantity()}
 

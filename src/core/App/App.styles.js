@@ -46,6 +46,31 @@ const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+    select {
+        display: block;
+        position: relative;
+        padding: 4px 8px;
+        font-size: 18px;
+        width: 94%;
+        margin-left: 3%;
+    }
+    label {
+        display: block;
+        position: relative;
+        color: #575757;
+        margin: 0px 0px 8px 12px;
+    }
+    button[type='submit'] {
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+        font-size: 18px;
+        background-color: orange;
+        color: white;
+        border-radius: 3px;
+        border: none;
+        box-shadow: 1px 1px 3px #AAA;
+    }
 `
 
 export { GlobalStyle };
